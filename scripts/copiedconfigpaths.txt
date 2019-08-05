@@ -1,0 +1,3 @@
+/home/1713/civ13-git/config/tips.txt
+/home/1713/civ13-git/config/motd.txt
+/home/1713/civ13-git/config/admin_ranks.txt

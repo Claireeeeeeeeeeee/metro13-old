@@ -1,0 +1,20 @@
+# BYOND specific ignores
+# Based on .gitignores from other SS13 codebases
+
+*.dmb
+*.rsc
+*.int
+*.lk
+*.log
+
+data/*
+SQL/*
+serverdata.txt
+
+
+
+.DS_Store
+config/host.txt
+config/host.txt
+config/host.txt
+config/host.txt

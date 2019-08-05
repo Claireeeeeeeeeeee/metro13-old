@@ -1,0 +1,25 @@
+/mob/living/simple_animal/horse
+	name = "horse"
+	desc = "A friendly horse. Seems to be tamed."
+	icon = 'icons/mob/animal_64.dmi'
+	icon_state = "horse"
+	icon_living = "horse"
+	icon_dead = "horse_dead"
+	speak = list("iiiiiiiih","BRHBRH","IIIIIIIIIIIIIIHHH")
+	speak_emote = list("neighs")
+	emote_hear = list("neighs")
+	emote_see = list("shakes its head")
+	speak_chance = TRUE
+	turns_per_move = 5
+	see_in_dark = 6
+	meat_type = /obj/item/weapon/reagent_containers/food/snacks/meat
+	meat_amount = 6
+	response_help  = "pets"
+	response_disarm = "gently pushes aside"
+	response_harm   = "kicks"
+	attacktext = "kicked"
+	health = 120
+	mob_size = MOB_LARGE
+	layer = 3.99
+	a_intent = I_HURT
+	can_ride = TRUE
