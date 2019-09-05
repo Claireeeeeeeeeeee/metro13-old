@@ -23,7 +23,7 @@
 "aw" = (/obj/structure/barricade/steel,/turf/floor/plating/road,/area/caribbean)
 "ax" = (/obj/structure/window/sandbag/sandbag,/obj/structure/window/sandbag/sandbag{icon_state = "sandbag"; dir = 8},/turf/floor/plating/road,/area/caribbean)
 "ay" = (/obj/structure/window/sandbag/sandbag,/turf/floor/plating/tiled/woodh,/area/caribbean)
-"az" = (/obj/structure/window/sandbag/sandbag,/obj/item/weapon/gun/projectile/automatic/stationary/modern/hotchkiss1914,/turf/floor/plating/tiled/woodh,/area/caribbean)
+"az" = (/obj/structure/closet/crate/empty,/obj/item/weapon/reagent_containers/food/drinks/bottle/vodka,/obj/item/weapon/reagent_containers/food/drinks/bottle/vodka,/obj/item/weapon/reagent_containers/food/drinks/bottle/vodka,/turf/floor/plating/concrete,/area/caribbean)
 "aA" = (/obj/structure/railing{icon_state = "railing0"; dir = 8},/obj/structure/window/sandbag/sandbag,/turf/floor/plating/road,/area/caribbean)
 "aB" = (/obj/structure/railing{icon_state = "railing0"; dir = 4},/obj/structure/window/sandbag/sandbag,/turf/floor/plating/road,/area/caribbean)
 "aC" = (/obj/structure/barbwire,/turf/floor/plating/road,/area/caribbean)
@@ -32,7 +32,7 @@
 "aF" = (/obj/structure/railing{icon_state = "railing0"; dir = 8},/obj/structure/barbwire,/turf/floor/plating/road,/area/caribbean)
 "aG" = (/obj/structure/railing{icon_state = "railing0"; dir = 8},/obj/structure/barricade/steel,/turf/floor/plating/road,/area/caribbean)
 "aH" = (/obj/structure/barricade/car,/turf/floor/plating/road,/area/caribbean)
-"aI" = (/obj/structure/window/sandbag/sandbag{icon_state = "sandbag"; dir = 1},/obj/item/weapon/gun/projectile/automatic/stationary/modern/hotchkiss1914{icon_state = "hotchkiss1914"; dir = 1},/turf/floor/plating/tiled/woodh,/area/caribbean)
+"aI" = (/obj/structure/closet/crate/empty,/obj/item/weapon/reagent_containers/food/snacks/grown/mushroom,/obj/item/weapon/reagent_containers/food/snacks/grown/mushroom,/obj/item/weapon/reagent_containers/food/snacks/grown/mushroom,/obj/item/weapon/reagent_containers/food/snacks/grown/mushroom,/obj/item/weapon/reagent_containers/food/snacks/grown/mushroom,/obj/item/weapon/reagent_containers/food/snacks/grown/mushroom,/obj/item/weapon/reagent_containers/food/snacks/grown/mushroom,/obj/item/weapon/reagent_containers/food/snacks/grown/mushroom,/obj/item/weapon/reagent_containers/food/snacks/grown/mushroom,/obj/item/weapon/reagent_containers/food/snacks/grown/mushroom,/turf/floor/plating/concrete,/area/caribbean)
 "aJ" = (/obj/structure/railing{icon_state = "railing0"; dir = 4},/obj/structure/window/sandbag/sandbag{icon_state = "sandbag"; dir = 1},/turf/floor/plating/road,/area/caribbean)
 "aK" = (/obj/structure/railing{icon_state = "railing0"; dir = 8},/obj/structure/window/sandbag/sandbag{icon_state = "sandbag"; dir = 1},/turf/floor/plating/road,/area/caribbean)
 "aL" = (/obj/structure/window/sandbag/sandbag{icon_state = "sandbag"; dir = 1},/obj/structure/window/sandbag/sandbag{icon_state = "sandbag"; dir = 8},/turf/floor/plating/road,/area/caribbean)
@@ -40,7 +40,7 @@
 "aN" = (/obj/structure/table/wood,/obj/item/weapon/storage/firstaid/adv,/turf/floor/plating/road,/area/caribbean)
 "aO" = (/obj/structure/table/wood,/obj/item/weapon/storage/firstaid/surgery,/turf/floor/plating/road,/area/caribbean)
 "aP" = (/obj/structure/oven/fireplace,/turf/floor/plating/road,/area/caribbean)
-"aQ" = (/obj/structure/closet/crate/rations/meat,/turf/floor/plating/road,/area/caribbean)
+"aQ" = (/obj/structure/closet/crate/empty,/turf/floor/plating/concrete,/area/caribbean)
 "aR" = (/turf/floor/dirt/underground,/area/caribbean)
 "aS" = (/obj/structure/table/wood,/turf/floor/plating/tiled/woodh,/area/caribbean)
 "aT" = (/obj/structure/bed/bedroll,/turf/floor/plating/tiled/woodh,/area/caribbean)
@@ -49,21 +49,21 @@
 "aW" = (/obj/item/flashlight/lantern/on,/turf/floor/plating/road,/area/caribbean)
 "aX" = (/obj/structure/table,/obj/item/weapon/key/russian,/turf/floor/plating/tiled/woodh,/area/caribbean)
 "aY" = (/obj/structure/closet/crate/rations/meat,/turf/floor/plating/tiled/woodh,/area/caribbean)
-"aZ" = (/obj/structure/window/sandbag/sandbag{icon_state = "sandbag"; dir = 1},/obj/item/weapon/gun/projectile/automatic/stationary/modern/hotchkiss1914,/turf/floor/plating/road,/area/caribbean)
+"aZ" = (/obj/structure/window/sandbag/sandbag{icon_state = "sandbag"; dir = 1},/obj/structure/railing{icon_state = "railing0"; dir = 4},/turf/floor/plating/road,/area/caribbean)
 "ba" = (/obj/structure/railing,/obj/structure/railing{icon_state = "railing0"; dir = 8},/turf/floor/plating/road,/area/caribbean)
 "bb" = (/obj/structure/bed/chair,/turf/floor/plating/road,/area/caribbean)
 "bc" = (/obj/structure/window/sandbag/sandbag{icon_state = "sandbag"; dir = 8},/obj/structure/bed/chair{icon_state = "chair"; dir = 4},/turf/floor/plating/road,/area/caribbean)
 "bd" = (/obj/structure/table/wood,/obj/structure/radio/transmitter_receiver/nopower/faction2,/turf/floor/plating/concrete,/area/caribbean)
 "be" = (/obj/structure/table/wood,/obj/item/weapon/paper_bin,/obj/item/weapon/pen/pencil,/turf/floor/plating/road,/area/caribbean)
-"bf" = (/obj/structure/closet/crate/empty,/turf/floor/plating/road,/area/caribbean)
-"bg" = (/obj/structure/closet/crate/rations/beer,/turf/floor/plating/road,/area/caribbean)
-"bh" = (/obj/structure/closet/crate/ww1/ammo_hotchkiss,/turf/floor/plating/road,/area/caribbean)
-"bi" = (/obj/structure/closet/crate/sandbags,/turf/floor/plating/road,/area/caribbean)
+"bf" = (/obj/item/flashlight/lantern/on,/obj/structure/railing{icon_state = "railing0"; dir = 4},/turf/floor/plating/road,/area/caribbean)
+"bg" = (/obj/structure/railing{icon_state = "railing0"; dir = 8},/obj/structure/closet/crate/empty,/obj/item/weapon/reagent_containers/food/drinks/bottle/vodka,/obj/item/weapon/reagent_containers/food/drinks/bottle/vodka,/obj/item/weapon/reagent_containers/food/drinks/bottle/vodka,/obj/item/weapon/reagent_containers/food/drinks/bottle/vodka,/obj/item/weapon/reagent_containers/food/drinks/bottle/vodka,/obj/item/weapon/reagent_containers/food/drinks/bottle/vodka,/obj/item/weapon/reagent_containers/food/drinks/bottle/vodka,/turf/floor/plating/road,/area/caribbean)
+"bh" = (/obj/structure/closet/crate/empty,/obj/item/weapon/reagent_containers/food/snacks/grown/mushroom,/obj/item/weapon/reagent_containers/food/snacks/grown/mushroom,/obj/item/weapon/reagent_containers/food/snacks/grown/mushroom,/obj/item/weapon/reagent_containers/food/snacks/grown/mushroom,/obj/item/weapon/reagent_containers/food/snacks/grown/mushroom,/obj/item/weapon/reagent_containers/food/snacks/grown/mushroom,/obj/item/weapon/reagent_containers/food/snacks/grown/mushroom,/obj/item/weapon/reagent_containers/food/snacks/grown/mushroom,/obj/item/weapon/reagent_containers/food/snacks/grown/mushroom,/obj/item/weapon/reagent_containers/food/snacks/grown/mushroom,/turf/floor/plating/road,/area/caribbean)
+"bi" = (/obj/structure/railing{icon_state = "railing0"; dir = 8},/obj/structure/table/wood,/turf/floor/plating/road,/area/caribbean)
 "bj" = (/obj/structure/closet/crate/empty,/obj/item/weapon/handcuffs/rope,/obj/item/weapon/handcuffs/rope,/obj/item/weapon/handcuffs/rope,/turf/floor/plating/tiled/woodh,/area/caribbean)
 "bk" = (/obj/structure/closet/crate/empty,/obj/item/weapon/material/kitchen/utensil/fork,/obj/item/weapon/material/kitchen/utensil/fork,/obj/item/weapon/material/kitchen/utensil/spoon,/obj/item/weapon/material/kitchen/utensil/spoon,/turf/floor/plating/road,/area/caribbean)
 "bl" = (/obj/structure/closet/crate/empty,/obj/item/kitchen/wood_bowl,/obj/item/kitchen/wood_bowl,/obj/item/kitchen/wood_bowl,/obj/item/kitchen/wood_bowl,/turf/floor/plating/road,/area/caribbean)
 "bm" = (/obj/structure/closet/crate/empty,/obj/item/weapon/material/kitchen/utensil/knife/bowie,/turf/floor/plating/road,/area/caribbean)
-"bn" = (/obj/structure/closet/crate/rations/vegetables,/turf/floor/plating/road,/area/caribbean)
+"bn" = (/obj/item/weapon/reagent_containers/glass/barrel/water,/obj/structure/railing{icon_state = "railing0"; dir = 4},/turf/floor/plating/road,/area/caribbean)
 "bo" = (/obj/structure/pot,/turf/floor/plating/road,/area/caribbean)
 "bp" = (/obj/item/weapon/reagent_containers/glass/barrel/water,/turf/floor/plating/road,/area/caribbean)
 "bq" = (/obj/structure/window/sandbag/sandbag{icon_state = "sandbag"; dir = 1},/obj/item/flashlight/lantern/on,/turf/floor/plating/road,/area/caribbean)
@@ -84,22 +84,16 @@
 "bF" = (/obj/structure/window/sandbag/sandbag{icon_state = "sandbag"; dir = 1},/turf/floor/plating/concrete,/area/caribbean)
 "bG" = (/obj/structure/sign/minefield,/turf/floor/plating/road,/area/caribbean)
 "bH" = (/obj/structure/table/wood,/obj/structure/radio/transmitter_receiver/nopower/faction1,/turf/floor/plating/road,/area/caribbean)
-"bI" = (/obj/structure/window/sandbag/sandbag{icon_state = "sandbag"; dir = 8},/obj/item/weapon/gun/projectile/automatic/stationary/modern/hotchkiss1914{icon_state = "hotchkiss1914"; dir = 8},/turf/floor/plating/concrete,/area/caribbean)
 "bJ" = (/obj/structure/closet/crate/wood,/turf/floor/plating/concrete,/area/caribbean)
-"bK" = (/obj/structure/closet/crate/ww1/ammo_hotchkiss,/turf/floor/plating/concrete,/area/caribbean)
 "bL" = (/obj/structure/closet/crate/empty,/obj/item/ammo_magazine/mosin,/obj/item/ammo_magazine/mosin,/obj/item/ammo_magazine/mosin,/obj/item/ammo_magazine/mosin,/obj/item/ammo_magazine/mosin,/obj/item/ammo_magazine/mosin,/obj/item/ammo_magazine/mosin,/turf/floor/plating/concrete,/area/caribbean)
 "bM" = (/obj/structure/bed/chair{icon_state = "chair"; dir = 4},/turf/floor/plating/concrete,/area/caribbean)
 "bN" = (/obj/structure/window/sandbag/sandbag{icon_state = "sandbag"; dir = 1},/obj/structure/window/sandbag/sandbag{icon_state = "sandbag"; dir = 1},/turf/floor/plating/road,/area/caribbean)
 "bO" = (/obj/structure/closet/crate/sandbags,/turf/floor/plating/concrete,/area/caribbean)
 "bP" = (/obj/structure/multiz/ladder/ww2/stairsdown{icon_state = "rampbottom"; dir = 1},/turf/open,/area/caribbean)
-"bQ" = (/obj/structure/railing{icon_state = "railing0"; dir = 8},/obj/structure/closet/crate/rations/beer,/turf/floor/plating/road,/area/caribbean)
-"bR" = (/obj/structure/closet/crate/sandbags,/obj/item/ammo_magazine/ak47,/obj/item/ammo_magazine/ak47,/obj/item/ammo_magazine/ak47,/obj/item/ammo_magazine/ak47,/turf/floor/plating/road,/area/caribbean)
-"bS" = (/obj/structure/closet/crate/empty,/obj/item/ammo_magazine/ak47,/obj/item/ammo_magazine/ak47,/obj/item/ammo_magazine/ak47,/obj/item/ammo_magazine/ak47,/turf/floor/plating/road,/area/caribbean)
 "bT" = (/obj/structure/railing,/turf/floor/plating/road,/area/caribbean)
 "bU" = (/obj/structure/railing{icon_state = "railing0"; dir = 1},/turf/floor/plating/road,/area/caribbean)
 "bV" = (/obj/structure/railing{icon_state = "railing0"; dir = 8},/obj/structure/railing,/turf/floor/plating/road,/area/caribbean)
 "bW" = (/obj/structure/window/sandbag/sandbag,/obj/structure/window/sandbag/sandbag{icon_state = "sandbag"; dir = 1},/turf/floor/plating/road,/area/caribbean)
-"bX" = (/obj/item/weapon/gun/projectile/automatic/stationary/modern/hotchkiss1914,/turf/floor/plating/road,/area/caribbean)
 "bY" = (/obj/structure/railing{icon_state = "railing0"; dir = 1},/obj/structure/railing{icon_state = "railing0"; dir = 4},/turf/floor/plating/road,/area/caribbean)
 "bZ" = (/obj/structure/window/sandbag/sandbag{icon_state = "sandbag"; dir = 4},/obj/item/flashlight/lantern/on,/turf/floor/plating/road,/area/caribbean)
 "ca" = (/obj/covers/cobblestone/stairs{icon_state = "rampup"; dir = 4},/turf/floor/plating/concrete,/area/caribbean)
@@ -127,7 +121,6 @@
 "cw" = (/obj/structure/table/wood,/obj/item/weapon/paper_bin,/obj/item/weapon/pen/pencil,/turf/floor/plating/concrete,/area/caribbean)
 "cx" = (/obj/structure/closet/crate/empty,/obj/item/weapon/gun/projectile/submachinegun/ak47,/obj/item/weapon/gun/projectile/submachinegun/ak47,/obj/item/weapon/gun/projectile/submachinegun/ak47,/obj/item/weapon/gun/projectile/submachinegun/ak47,/obj/item/weapon/gun/projectile/submachinegun/ak47,/turf/floor/plating/concrete,/area/caribbean)
 "cy" = (/obj/structure/table/wood,/obj/structure/radio/transmitter_receiver/nopower/faction1,/turf/floor/plating/concrete,/area/caribbean)
-"cz" = (/obj/structure/closet/crate/empty,/obj/item/weapon/gun/projectile/submachinegun/ak47,/obj/item/weapon/gun/projectile/submachinegun/ak47,/turf/floor/plating/concrete,/area/caribbean)
 "cA" = (/obj/effect/decal/cleanable/blood/gibs/up,/turf/floor/plating/road,/area/caribbean)
 "cB" = (/obj/effect/decal/cleanable/blood/gibs/core,/turf/floor/plating/road,/area/caribbean)
 "cC" = (/obj/structure/railing{icon_state = "railing0"; dir = 8},/obj/item/mine/ap/armed,/turf/floor/plating/road,/area/caribbean)
@@ -159,18 +152,18 @@ aRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRabaeaeaeaeabaR
 aRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRabaeaeaeaeabaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaR
 aRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRabaeaeaeaeababababababababababababababababababababaRaRaRaRaRaRaRaRaRaRaRaR
 aRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRabaeaeaeaecacabvbvcbbzbvbvbvbvbCbvbvbvabbvbubvbuabaRaRaRaRaRaRaRaRaRaRaRaR
-aRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRabaeaeaeaecacabvbvcbbIbvbvbvbvbvbvbvbvcibvbubvbuabaRaRaRaRaRaRaRaRaRaRaRaR
+aRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRabaeaeaeaecacabvbvcbbzbvbvbvbvbvbvbvbvcibvbubvbuabaRaRaRaRaRaRaRaRaRaRaRaR
 aRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRabaeaeaeafbvbvbvbvcbbzbvbvbvabbvbvbvbvabbvbubvbuabaRaRaRaRaRaRaRaRaRaRaRaR
 aRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRabaeaeaeafbvbvbvbvcbcccdcdbvabbBckbvbvabbvbubvbuabaRaRaRaRaRaRaRaRaRaRaRaR
 aRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRabaWaeaeafbvbvbvbvclcmcmcmbvabbBckbvbvabbvbvbvbwabaRaRaRaRaRaRaRaRaRaRaRaR
-aRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRabaeaeaeafbvbvbvbvbvbvbvbvbvabbBckbvbvababababababaRaRaRaRaRaRaRaRaRaRaRaR
-aRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRabaeaeaeafbvbvbvbvbwbvbvbvbvabbBckbvbvabbCbBbvbvabaRaRaRaRaRaRaRaRaRaRaRaR
-aRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRabaeaeaeaeababababababababababbBckbvbvabbvbvbvbvabaRaRaRaRaRaRaRaRaRaRaRaR
-aRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRabauaeaeauabcvcpbvbvbvbvbvbvabbBckbvbvabbvbvbvbvabaRaRaRaRaRaRaRaRaRaRaRaR
-aRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRabaeaeaeaeabbvbvbvbvbvbvbvbvabbvbvbvbvcibvbdbBbvabaRaRaRaRaRaRaRaRaRaRaRaR
-aRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRabaeaeaeaeabbLbLcncncncnbvbvcibvbvbvbCabbvcwckbvabaRaRaRaRaRaRaRaRaRaRaRaR
+aRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRabaeaeaeafbvbvbvbvbvbvbvbvbvabbBckbvazababababababaRaRaRaRaRaRaRaRaRaRaRaR
+aRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRabaeaeaeafbvbvbvbvbwbvbvbvbvabbBckbvazabbCbBbvbvabaRaRaRaRaRaRaRaRaRaRaRaR
+aRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRabaeaeaeaeababababababababababbBckbvaIabbvbvbvbvabaRaRaRaRaRaRaRaRaRaRaRaR
+aRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRabauaeaeauabcvcpaQaQaQaQaQbvabbBckbvaIabbvbvbvbvabaRaRaRaRaRaRaRaRaRaRaRaR
+aRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRabaeaeaeaeabbvbvbvbvbvbvbvbvabaIbvbvbvcibvbdbBbvabaRaRaRaRaRaRaRaRaRaRaRaR
+aRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRabaeaeaeaeabbLbLcncncncnaQbvcibvbvbvbCabbvcwckbvabaRaRaRaRaRaRaRaRaRaRaRaR
 aRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRabauaeaeauabbvbvbvbvbvbvbvbvabbvbvbvbvabbvbCbBbvabaRaRaRaRaRaRaRaRaRaRaRaR
-aRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRabaeaeaeaeabcxcjcjbvbvbvbvbvabcgchbBbBabbvbvbvbvabaRaRaRaRaRaRaRaRaRaRaRaR
+aRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRabaeaeaeaeabcxcjcjaQaQaQaQbvabcgchbBbBabbvbvbvbvabaRaRaRaRaRaRaRaRaRaRaRaR
 aRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRabaeaeaealababababababababababababababababababababaRaRaRaRaRaRaRaRaRaRaRaR
 aRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRabaeaeaealabaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaR
 aRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRabaeaeaealabaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaR
@@ -201,12 +194,12 @@ abacacacamaeaeaeaeaeaeaeaeaeaeaeaeaealacacacabacacacacacacamaPaeaeaeaeaeaeaeaeae
 abacacacamaeaeaeaeaeaeaeaeaeaeaeaeaealacacacabacacacacacacamaeaeaeaeaeaeaeaeaeaeaeaeaealacacacacababaeaeaeaeaeabaRaRaRaRaRaRaRaRaRaRaRaRaRaR
 abacacacamaeahahadaeaeaeaeaeapapapapavacacacabacacacacacacamaeahahadawarawawaeapapapapavacacacacababaeaeaeaeaeabaRaRaRaRaRaRaRaRaRaRaRaRaRaR
 abacacacaxapahahadaeaeaeaeafacacacacacacacacabacacacacacacaxapahahadawararawafacacacacacacacacacababababababababaRaRaRaRaRaRaRaRaRaRaRaRaRaR
-abacacacacacacacadaeaeaeaeafacacacacacacacacabacacacacacacacacacacadawayazawafacacacacacacacacacabaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaR
+abacacacacacacacadaeaeaeaeafacacacacacacacacabacacacacacacacacacacadawayayawafacacacacacacacacacabaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaR
 abacacacacacacacadaeaeaeaeafacacacacacacacacacacacacacacacacacacacadaeauauaeafacacacacacacacacacabaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaR
 abacacacacacacacadaeaeaeaeafacacacacacacacacacacacacacacacacacacacadaeaeaeaeafacacacacacacacacacabaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaR
 abacacacacacacacadawarawawafacacacacacacacacacacacacacacacacacacacadaeaeaeaeafacacacacacacacacacabaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaR
 abacacacacacacacadawararawafacacacacacacacacacacacacacacacacacacacaAapaeaeapaBacacacacacacacacacabaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaR
-abacacacacacacacadawayazawafacacacacacacacacabacacacacacacacacacacadaeaeaeaeafacacacacacacacacacabaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaR
+abacacacacacacacadawayayawafacacacacacacacacabacacacacacacacacacacadaeaeaeaeafacacacacacacacacacabaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaR
 abacacacacacacacadaeauauaeafacacacacacacacacabacacacacacacacacacacadaeaeaeaeafacacacacacacacacacabaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaR
 abacacacacacacacadaeaeaeaeafacacacacacacacacabacacacacacacacacacacadapapapapaBacacacacacacacacacabaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaR
 abacacacacacacacaKauaeaeauaJacacacacacacacacabacacacacacacacacacacadaCaCaCaCaDacacacacacacacacacabaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaR
@@ -228,7 +221,7 @@ abacacacacacacacadawaeaeaeafacacacacacacacacabacacacacacacacacacacadcMaHaeaEafac
 abacacacacacacacadaeaebGaeafacacacacacacacacabacacacacacacacacacacaFaCaCaecHafacacacacacacacacacabaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaR
 abacacacacacacacaKauaeaeauaJacacacacacacacacabacacacacacacacacacacadawaeaeaeafacacacacacacacacacabaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaR
 abacacacacacacacadapapapapafacacacacacacacacacacacacacacacacacacacadcHaeaCaCaDacacacacacacacacacabaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaR
-abacacacacacacacadawaIaqawafacacacacacacacacacacacacacacacacacacacadauaeaeaeafacacacacacacacacacabaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaR
+abacacacacacacacadawaqaqawafacacacacacacacacacacacacacacacacacacacadauaeaeaeafacacacacacacacacacabaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaR
 abacacacacacacacadawararasatacacacacacacacacacacacacacacacacacacacadaeaecBaeafacacacacacacacacacabaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaR
 abacacacacacacacadawarawawafacacacacacacacacacacacacacacacacacacacadaeaCaCaCaDacacacacacacacacacabaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaR
 abacacacacacacacadaWaeaeaeafacacacacacacacacabacacacacacacacacacacadaebqauauaJacacacacacacacacacabaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaR
@@ -239,7 +232,7 @@ abacacacacacbPbPadaeaeaeaeafacacacacacacacacabacacacacacacacacbPbPadaeaeaeaeaJac
 abacacacaLauagagadaealauauaiaiaiaiaiacacacacabacacacacacacaLauagagaKauaeaeaeaeaubqauaMacacacacacabaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaR
 abacacacbraeaeaeaeaealaeaeajajajaeaNacacacacabacacacacacacbraeaeaeaeaeaeaeaeaeaeaeaealacacacacacabaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaR
 abacacacamaeaeaeaeaeaeaeaeaeaeaeaeaOacacacacabacacacacacacamaebbaeaeaeaeaeaeaeaeaeaealacacacacacabaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaR
-abacacacbcbHaQaQaeaeaeaeaeajajajaebsacacacacabacacacacacacambHakbeaeaeaeaeaebfbfbfaPalacacacacacabaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaR
+abacacacbcbHaeaeaeaeaeaeaeajajajaebsacacacacabacacacacacacambHakbeaeaeaeaeaeaeaeaeaPalacacacacacabaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaR
 abababababababababamaeaealabababababababababababababababababababababaeaeaeaeabababababababababababaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaR
 aRaRaRaRaRaRaRaRabamaeaealabaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRabamaeaealabaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaR
 aRaRaRaRaRaRaRaRabamaeaealabaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRabamaeaeanabaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaR
@@ -264,12 +257,12 @@ aRabaeaeaeaeabababaeaeaeaeabaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRabaeaeaeaeabab
 aRababababababaRabaeaeaeaeabaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRabapaeaebybzbvbvbvbvbvbvabaRaRaRaRabbvbvbvbAbvbvabababababaRaRaRaRaRaRaRaR
 aRaRaRaRaRaRaRaRabaeaeaeaeabaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRabaeaeaebybzbvbvbvbzbvbvabaRaRaRaRabbBbCbBaibvbvabaRaRaRaRaRaRaRaRaRaRaRaR
 aRaRaRaRaRaRaRaRabaeaeaeaeabaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRabaeaeaebybzbvbvbvbzbvbvabaRaRaRaRabaiaiaiaibvbvabaRaRaRaRaRaRaRaRaRaRaRaR
-aRaRaRaRaRaRaRaRabaaaeaeaaabaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRabaeaeaeaebvbvbvbvbzbvbvababababababcjcjczczbvbvabaRaRaRaRaRaRaRaRaRaRaRaR
-aRaRaRaRaRaRaRaRaRaaaaaeaaabaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRabaeaeaeaebvbvbvbvbvbvbvbAbvbvbvbvbvbvbvbvbvbvcjabaRaRaRaRaRaRaRaRaRaRaRaR
-aRaRaRaRaRaRaRaRaRaRaRaRaRabaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRabaeaeaebybzbvbvbDbDbDbvbAbvbvbvbvbvbvbvbvbvbvcjababababababaRaRaRaRaRaRaR
+aRaRaRaRaRaRaRaRabaaaeaeaaabaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRabaeaeaeaebvbvbvbvbzbvbvababababababbvbvbvbvbvbvabaRaRaRaRaRaRaRaRaRaRaRaR
+aRaRaRaRaRaRaRaRaRaaaaaeaaabaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRabaeaeaeaebvbvbvbvbvbvbvbAbvbvbvbvbvbvbvbvbvbvbvabaRaRaRaRaRaRaRaRaRaRaRaR
+aRaRaRaRaRaRaRaRaRaRaRaRaRabaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRabaeaeaebybzbvbvbDbDbDbvbAbvbvbvbvbvbvbvbvbvbvbvababababababaRaRaRaRaRaRaR
 aRaRaRaRaRaRaRaRaRaRaRaRaRabaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRabaeaeaebybzbvbvbDbEbFbvababababbAabbvbvbvbvbvbvabbvbvbvcyabaRaRaRaRaRaRaR
-aRaRaRaRaRaRaRaRaRaRaRaRaRabaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRabaeaeaebybzbvbvbDbIbvbvabbJbJbJbvabbvbvbvbvbvbvbAbvbvbMcwabaRaRaRaRaRaRaR
-aRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRabaeaeaebybzbvbwbDbzbvbKabbvbvbvbvabbvbvbvbvbvbvabbvbvbvbCabaRaRaRaRaRaRaR
+aRaRaRaRaRaRaRaRaRaRaRaRaRabaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRabaeaeaebybzbvbvbDbzbvbvabbJbJbJbvabbvbvbvbvbvbvbAbvbvbMcwabaRaRaRaRaRaRaR
+aRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRabaeaeaebybzbvbwbDbzbvbvabbvbvbvbvabbvbvbvbvbvbvabbvbvbvbCabaRaRaRaRaRaRaR
 aRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRabaeaeaeaeababababababababbObObObwabbvbvbvbvbvbvababababababaRaRaRaRaRaRaR
 aRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRabaeaeaeaeabaaaaaaaaaaaaabababababababababababababaRaRaRaRaRaRaRaRaRaRaRaR
 "}
@@ -442,12 +435,12 @@ aRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaR
 aRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaR
 aRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaR
 abababababababababababababababababababababababababababababababababababababababababababababababababaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaR
-abacacacacacacacadaNaeaebgaWbgafacacacacacacabacacacacacacacacacacbQbnakakbobpaeacacacacacacacacabaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaR
-abacacacacacacacadaOababbhaebgafacacacacacacabacacacacacacacacacacadaeaeaeaeaeaeacacacacacacacacabaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaR
-abacacacacacacacadbsababbhaebiafacacacacacacabacacacacacacacacacacadaeaeaeaeaeaeacacacacacacacacabaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaR
-abacacacacacahahaeajaeajaQaebiafacacacacacacabacacacacacacacacahahaeabblaeakabaeacacacacacacacacabaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaR
-abacacacacacahahaeajaeajbfaebRafacacacacacacabacacacacacacacacahahaeaebmaeakaeaeacacacacacacacacabaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaR
-abacacacacacadaeaeaeaeaeaeaebSafacacacacacacabacacacacacacacacadaeaeabbkaeakabaeacacacacacacacacabaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaR
+abacacacacacacacadaNaeaeaeaeaeafacacacacacacabacacacacacacacacacacadaeakakbobpaeacacacacacacacacabaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaR
+abacacacacacacacadaOababaeaeaeafacacacacacacabacacacacacacacacacacadaeaeaeaeaeaeacacacacacacacacabaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaR
+abacacacacacacacadbsababaeaeaeafacacacacacacabacacacacacacacacacacadaeaeaeaeaeaeacacacacacacacacabaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaR
+abacacacacacahahaeajaeajaeaeaeafacacacacacacabacacacacacacacacahahaeabblaeakabaeacacacacacacacacabaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaR
+abacacacacacahahaeajaeajaeaeaeafacacacacacacabacacacacacacacacahahaeaebmaeakaeaeacacacacacacacacabaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaR
+abacacacacacadaeaeaeaeaeaeaeaeafacacacacacacabacacacacacacacacadaeaeabbkaeakabaeacacacacacacacacabaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaR
 abacacacacacbabTaeawawawaeaeaeaebUbUbUbUbUbUbUbUbUbUbUbUbUbUbUaeaeaeaeaeaeaeaeaeacacacacacacacacabaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaR
 abacacacacacacacbVaeaeaeaeapapapapapapapaeaeaeaeaeapapapapapaeapapapaeaeaeaeaeaeacacacacacacacacabaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaR
 abacacacacacacacacaeaeacacacacacacacacacacacacacacacacacacacacacacacacaeaeacacacacacacacacacacacabaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaR
@@ -457,8 +450,8 @@ abacacacacacacacacaeaeacacacacacacacacacacacabacacacacacacacacacacacacaeaeacacac
 abacacacacacacabaeaeaeaeabacacacacacacacacacabacacacacacacacacacacacacaeaeacacacacacacacacacacacabaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaR
 abacacacacacacadaeaeaeaealacacacacacacacacacabacacacacacacacacacacacabaeaeaeabacacacacacacacacacabaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaR
 abacacacacacacadaeaeaeaealacacacacacacacacacabacacacacacacacacacacacamaeaeaealacacacacacacacacacabaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaR
-abacacacacacacadaeaeaeaealacacacacacacacacacabacacacacacacacacacacacamaeaebhalacacacacacacacacacabaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaR
-abacacacacacacabbWbWbWbWabacacacacacacacacacabacacacacacacacacacacacamaebXaealacacacacacacacacacabaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaR
+abacacacacacacadaeaeaeaealacacacacacacacacacabacacacacacacacacacacacamaeaeaealacacacacacacacacacabaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaR
+abacacacacacacabbWbWbWbWabacacacacacacacacacabacacacacacacacacacacacamaeaeaealacacacacacacacacacabaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaR
 abacacacacacacacacacacacacacacacacacacacacacabacacacacacacacacacacacabapapapabacacacacacacacacacabaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaR
 abacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacabaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaR
 abacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacabaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaR
@@ -472,20 +465,20 @@ abacacacacacacacacacacacacacacacacacacacacacabacacacacacacacacacacacacacacacacac
 abacacacacacacacacacacacacacacacacacacacacacabacacacacacacacacacacacacacacacacacacacacacacacacacabaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaR
 abacacacacacacacacacacacacacacacacacacacacacabacacacacacacacacacacacacacacacacacacacacacacacacacabaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaR
 abacacacacacacacacacacacacacacacacacacacacacabacacacacacacacacacacacacacacacacacacacacacacacacacabaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaR
-abacacacacauauauauauauauacacacacacacacacacacabacacacacacacacacacacaLauaZauaMacacacacacacacacacacabaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaR
+abacacacacauauauauauauauacacacacacacacacacacabacacacacacacacacacacaLauauauaMacacacacacacacacacacabaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaR
 abacacacacaeaeaeaeaeaeaeacacacacacacacacacacacacacacacacacacacacacamaeaeaealacacacacacacacacacacabaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaR
 abacacacacadababaeaeaeaeaeauauauaubUbUbUbUbUbUbUbUbUbYacacacacacacamaeaeaebZacacacacacacacacacacabaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaR
 abacacacacaeababaWaebTbTbTbTbTbTbTbTbTbTbTbTbTbTbTaeafacacacacacacacacadafacacacacacacacacacacacabaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaR
 abacacacacadaeaeaeaeacacacacacacacacacacacacacacacadafacacacacacacacacadafacacacacacacacacacacacabaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaR
 abacacacacadaeaeaeaeacacacacacacacacacacacacabacacadafacacacacacacacacadafacacacacacacacacacacacabaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaR
-abacacacacadcVaeaeaeacacacacacacacacacacacacabacacadaeauauauauauauauauaeaeauacacacacacacacacacacabaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaR
-abacacacacadaeaeaeaeaeaeaeafacacacacacacacacabacacbVbTbTbTbTbTaeaeaeaeaeaeaeacacacacacacacacacacabaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaR
-abacacacacbaaeaeaeaeaeaeaeafacacacacacacacacabacacacacacacacacaeaeaeabbkaeabacacacacacacacacacacabaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaR
-abacacacacacagagaebgaebgaeafacacacacacacacacabacacacacacacacacagagaeblaeaeaWacacacacacacacacacacabaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaR
-abacacacacaccucuaebhaebgaeafacacacacacacacacabacacacacacacacaccucuaeabbmaeabacacacacacacacacacacabaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaR
-abacacacacacacacadbhaebiaeafacacacacacacacacabacacacacacacacacacacaebnaeaeaQacacacacacacacacacacabaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaR
-abacacacacacacacadaQaebiaeafacacacacacacacacabacacacacacacacacacacaeaeaeaeabacacacacacacacacacacabaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaR
-abacacacacacacacadaQaWbiaeafacacacacacacacacabacacacacacacacacacacakakboaebpacacacacacacacacacacabaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaR
+abacacacacadcVaeaeaeacacacacacacacacacacacacabacacadaeauauauauauauauauaeaeaZacacacacacacacacacacabaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaR
+abacacacacadaeaeaeaeaeaeaeafacacacacacacacacabacacbVbTbTbTbTbTaeaeaeaeaeaeafacacacacacacacacacacabaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaR
+abacacacacbaaeaeaeaeaeaeaeafacacacacacacacacabacacacacacacacacadaeaeabbkaeabacacacacacacacacacacabaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaR
+abacacacacacagagaeaeaeaeaeafacacacacacacacacabacacacacacacacacagagaeblaeaebfacacacacacacacacacacabaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaR
+abacacacacaccucuaeaeaeaeaeafacacacacacacacacabacacacacacacacaccucuaeabbmaeabacacacacacacacacacacabaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaR
+abacacacacacacacadaeaeaeaeafacacacacacacacacabacacacacacacacacacacbgbhbhaeafacacacacacacacacacacabaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaR
+abacacacacacacacadaeaeaeaeafacacacacacacacacabacacacacacacacacacacadaeaeaeabacacacacacacacacacacabaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaR
+abacacacacacacacadaeaeaeaeafacacacacacacacacabacacacacacacacacacacbiakboaebnacacacacacacacacacacabaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaR
 abababababababababababababababababababababababababababababababababababababababababababababababababaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaR
 aRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaR
 aRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaRaR
