@@ -72,6 +72,7 @@
 	matter = list(DEFAULT_WALL_MATERIAL = 500)
 	throwforce = 5
 	w_class = 2
+	var/unwieldiness = 1
 	throw_speed = 4
 	throw_range = 10
 	secondary_action = 1
@@ -145,6 +146,7 @@
 	weight = 0.8
 	multiple_sprites = TRUE
 
+/*
 /obj/item/ammo_magazine/emptymagazine/small
 	name = "magazine (30)"
 	mag_type = MAGAZINE
@@ -172,6 +174,7 @@
 	max_ammo = 8
 	weight = 0.1
 	multiple_sprites = TRUE
+*/
 /obj/item/ammo_magazine/emptybelt
 	name = "belt (100)"
 	mag_type = MAGAZINE
@@ -264,15 +267,15 @@
 			icon_state = (new_state)? new_state : initial(icon_state)
 		if (clip)
 			if (stored_ammo.len == FALSE)
-				caliber = null
+				//caliber = null
 				name = "clip ([max_ammo])"
 		else if (belt)
 			if (stored_ammo.len == FALSE)
-				caliber = null
+				//caliber = null
 				name = "belt ([max_ammo])"
 		else
 			if (stored_ammo.len == FALSE)
-				caliber = null
+				//caliber = null
 				name = "magazine ([max_ammo])"
 
 /obj/item/ammo_magazine/New()

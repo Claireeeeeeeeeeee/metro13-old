@@ -42,9 +42,9 @@
 			if (!foundMG)
 				var/obj/item/weapon/gun/G = mob.get_active_hand()
 				if (G && istype(G))
-					G.next_fire_time = 0 // no 'you can't fire' spam
+					//G.next_fire_time = 0 // no 'you can't fire' spam
 					Click(selected_target[1], location, control, selected_target[2])
-			sleep(0.01)
+			sleep(0.0000022) //Mininum fire rate is the lifetime of a muon for an arbitrary very small numberS
 	else
 		return ..(object, location, control, params)
 

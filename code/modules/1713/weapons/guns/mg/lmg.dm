@@ -1,4 +1,3 @@
-
 /obj/item/weapon/gun/projectile/automatic
 	force = 15
 	throwforce = 30
@@ -67,30 +66,7 @@
 	firemodes = list(
 		list(name="full auto",	burst=1, burst_delay=0.8, move_delay=8, dispersion = list(0.7, 1.1, 1.1, 1.1, 1.3), recoil = 1.0),)
 
-	var/jammed_until = -1
-	var/jamcheck = 0
-	var/last_fire = -1
-
-/obj/item/weapon/gun/projectile/automatic/update_icon()
-	if (ammo_magazine)
-		icon_state = base_icon
-	else
-		icon_state = "[base_icon]_open"
-	update_held_icon()
-	return
-
-/obj/item/weapon/gun/projectile/automatic/special_check(mob/user)
-	if (gun_safety && safetyon)
-		user << "<span class='warning'>You can't fire \the [src] while the safety is on!</span>"
-		return FALSE
-	if (!user.has_empty_hand(both = FALSE))
-		user << "<span class='warning'>You need both hands to fire \the [src]!</span>"
-		return FALSE
-	if (jammed_until > world.time)
-		user << "<span class = 'danger'>\The [src] has jammed! You can't fire it until it has unjammed.</span>"
-		return FALSE
-	return TRUE
-
+/*
 /obj/item/weapon/gun/projectile/automatic/madsen
 	name = "Madsen light machine gun"
 	desc = "The Madsen Machine Gun, is a light machine gun (LMG) designed in Denmark in the 1896. Many countries ordered models of it in different calibers. This one is 7.62x54mmR, mosin rounds."
@@ -242,20 +218,6 @@
 	load_delay = 50
 	slowdown = 1
 
-/obj/item/weapon/gun/projectile/automatic/handle_post_fire()
-	..()
-
-	if (world.time - last_fire > 50)
-		jamcheck = 0
-	else
-		jamcheck += 0.1
-
-	if (prob(jamcheck))
-		jammed_until = max(world.time + (jamcheck * 5), 50)
-		jamcheck = 0
-
-	last_fire = world.time
-
 /obj/item/weapon/gun/projectile/automatic/pkm
 	name = "PKM machine gun"
 	desc = "A soviet machinegun chambered in 7.62x54mmR rounds."
@@ -293,3 +255,4 @@
 	equiptimer = 25
 	load_delay = 50
 	slowdown = 0.9
+*/

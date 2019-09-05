@@ -139,8 +139,10 @@
 	build_override_coins_silver.desc = "Some coins."
 	var/obj/item/stack/money/goldcoin/build_override_coins_gold = new/obj/item/stack/money/goldcoin
 	build_override_coins_gold.desc = "Some coins."
+/*
 	var/obj/item/weapon/gun/projectile/ancient/firelance/build_override_firelance = new/obj/item/weapon/gun/projectile/ancient/firelance
 	build_override_firelance.desc = "A simple firelance."
+*/
 	var/obj/structure/religious/gravestone/build_override_gravestone = new/obj/structure/religious/gravestone
 	build_override_gravestone.desc = "A gravestone."
 	var/mob/living/carbon/human/H = user
@@ -330,6 +332,7 @@
 		if (H.getStatCoeff("crafting") < 1.35)
 			H << "<span class = 'danger'>This is too complex for your skill level.</span>"
 			return
+	/*
 	if (findtext(recipe.title, "fire lance"))
 		if (!istype(H.l_hand, /obj/item/weapon/material/spear) && !istype(H.r_hand, /obj/item/weapon/material/spear))
 			user << "<span class = 'warning'>You need to have a spear in one of your hands in order to make this.</span>"
@@ -345,6 +348,7 @@
 				build_override_firelance.force = round(H.r_hand.force*0.9)
 				build_override_firelance.throwforce = round(H.r_hand.throwforce*0.65)
 				qdelHandReturn(H.r_hand, H)
+	*/
 	if (!findtext(recipe.title, "wood spear"))
 		if (findtext(recipe.title, "hatchet") || findtext(recipe.title, "shovel") || findtext(recipe.title, "pickaxe") || findtext(recipe.title, "spear") || findtext(recipe.title, "battle axe"))
 			if (!istype(H.l_hand, /obj/item/weapon/material/handle) && !istype(H.r_hand, /obj/item/weapon/material/handle))
@@ -754,12 +758,14 @@
 						return
 				O.color = addtext("#",input)
 				return
+		/*
 		if (build_override_firelance.desc != "A simple firelance.")
 			build_override_firelance.loc = get_turf(O)
 			build_override_firelance.set_dir(user.dir)
 			build_override_firelance.add_fingerprint(user)
 			qdel(O)
 			return
+		*/
 		if (build_override_key.code != -1)
 			build_override_key.loc = get_turf(O)
 			build_override_key.set_dir(user.dir)

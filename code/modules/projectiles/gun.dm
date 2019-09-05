@@ -38,16 +38,35 @@
 	force = 5
 	attack_verb = list("struck", "hit", "bashed")
 
+	var/need_both_hands = FALSE //Turn on if you want to severely limit the amount of fun players can have with your gun
+	var/akimbo_penalty = 2 //How much the dispersion is increased/accuracy is decreased from firing with one hand
+
 	var/full_auto = FALSE
 	var/fire_delay = 5 	//delay after shooting before the gun can be used again
 	var/burst_delay = 2	//delay between shots, if firing in bursts
-	var/fire_sound = 'sound/weapons/kar_shot.ogg'
+
+	var/fire_sound = list('sound/weapons/kar_shot.ogg')
+	var/suppressed_fire_sound = list('sound/weapons/kar_shot.ogg')
+	var/empty_sound = list('sound/weapons/empty.ogg')
+
+	var/loudness = 100
+	var/empty_loudness = 100
+
 	var/fire_sound_text = "gunshot"
 	var/recoil = 0		//screen shake
-	var/silenced = FALSE
+	var/suppressed = FALSE
 	var/muzzle_flash = 3
 	var/accuracy = 0   //accuracy is measured in tiles. +1 accuracy means that everything is effectively one tile closer for the purpose of miss chance, -1 means the opposite. launchers are not supported, at the moment.
 //	var/scoped_accuracy = null
+	var/unwieldiness = 1 //General modifier for reloading (WIP)/jam clearing (WIP)/move recovering from firing (WIP), meant to represent how small and easy to move the gun is
+
+	var/jam_frequency = 0.4 //How much the probability of a jam increases with each consecutive shot from a gun
+	var/jam_severity = 1 //A multiplier that effects how long jams last for
+	var/jam_check = 0 //A variable representing the current probability of a jam
+	var/jam_time = 0 //A variable set with how long (in centiseconds) a jam will take to fix
+	//var/last_fire = -1
+
+	var/heat_rate = 2 //Amount the temperature variable of the barrel raises per shot
 
 	var/next_fire_time = 0
 
@@ -85,16 +104,16 @@
 
 /obj/item/weapon/gun/New()
 	..()
-	if (!istype(src, /obj/item/weapon/gun/projectile/custom))
-		if (!firemodes.len)
-			firemodes += new firemode_type
-		else
-			for (var/i in 1 to firemodes.len)
-				firemodes[i] = new firemode_type(firemodes[i])
+	//if (!istype(src, /obj/item/weapon/gun/projectile/custom))
+	if (!firemodes.len)
+		firemodes += new firemode_type
+	else
+		for (var/i in 1 to firemodes.len)
+			firemodes[i] = new firemode_type(firemodes[i])
 
-		for (var/datum/firemode/FM in firemodes)
-			if (FM.fire_delay == -1)
-				FM.fire_delay = fire_delay
+	for (var/datum/firemode/FM in firemodes)
+		if (FM.fire_delay == -1)
+			FM.fire_delay = fire_delay
 
 	if (!aim_targets)
 		aim_targets = list()
@@ -103,6 +122,17 @@
 //Any checks that shouldn't result in handle_click_empty() being called if they fail should go here.
 //Otherwise, if you want handle_click_empty() to be called, check in consume_next_projectile() and return null there.
 /obj/item/weapon/gun/proc/special_check(var/mob/user)
+	if (gun_safety && safetyon)
+		user << "<span class='warning'>You can't fire \the [src] while the safety is on!</span>"
+		return FALSE
+
+	if (!user.has_empty_hand(both = FALSE) && need_both_hands)
+		user << "<span class='warning'>You need both hands to fire \the [src]!</span>"
+		return FALSE
+
+	if (jam_time > 0)
+		user << "<span class = 'danger'>\The [src] has jammed! You can't fire it until it has unjammed.</span>"
+		return FALSE
 
 	if (!istype(user, /mob/living))
 		return FALSE
@@ -139,15 +169,15 @@
 		PreFire(A,user,params) //They're using the new gun system, locate what they're aiming at.
 		return
 
-	//DUAL WIELDING: only works with pistols edition
+	//DUAL WIELDING: now works with any gun that doesn't need both hands!
 	var/obj/item/weapon/gun/off_hand = null
 	if (ishuman(user) && user.a_intent == "harm")
 		var/mob/living/carbon/human/H = user
 		if (istype(H.l_hand, /obj/item/weapon/gun) && istype(H.r_hand, /obj/item/weapon/gun))
 			var/obj/item/weapon/gun/LH = H.l_hand
 			var/obj/item/weapon/gun/RH = H.r_hand
-			if (RH == "pistol")
-				if (LH == "pistol")
+			if (!RH.need_both_hands)
+				if (!LH.need_both_hands)
 					if (H.r_hand == src)
 						off_hand = H.l_hand
 
@@ -234,8 +264,10 @@
 			return
 
 		if (world.time < next_fire_time)
+			/*
 			if (world.time % 3) //to prevent spam
 				user << "<span class='warning'>[src] is not ready to fire again!</span>"
+			*/
 			return
 
 	//unpack firemode data
@@ -265,6 +297,10 @@
 
 		var/acc = 0 // calculated in projectile code
 		var/disp = firemode.dispersion[min(i, firemode.dispersion.len)]
+		if (barrel)
+			disp *= barrel.dispersion_mod
+		if (stock)
+			disp *= stock.dispersion_mod
 
 		if (istype(projectile, /obj/item/projectile))
 			var/obj/item/projectile/P = projectile
@@ -297,7 +333,7 @@
 	update_held_icon()
 
 	//update timing
-
+	
 	if (_move_delay)
 		user.setMoveCooldown(_move_delay + 1.5)
 
@@ -306,6 +342,9 @@
 	if (muzzle_flash)
 		spawn(5)
 			set_light(0)
+
+	if (barrel)
+		barrel.temperature += heat_rate
 
 //obtains the next projectile to fire
 /obj/item/weapon/gun/proc/consume_next_projectile()
@@ -326,16 +365,22 @@
 	else
 		visible_message("*click click*")
 
-	playsound(loc, 'sound/weapons/empty.ogg', 100, TRUE)
+	playsound(loc, pick(empty_sound), empty_loudness, TRUE)
 
 //called after successfully firing
 /obj/item/weapon/gun/proc/handle_post_fire(mob/user, atom/target, var/pointblank=0, var/reflex=0)
-	if (silenced)
-		playsound(get_turf(user), fire_sound, 10, TRUE, 100)
+	if (suppressed)
+		playsound(get_turf(user), pick(suppressed_fire_sound), (loudness*barrel.noise_mod)+rand(-10, 10), TRUE, 100)
 	else
-		playsound(get_turf(user), fire_sound, 100, TRUE, 100)
+		if (barrel)
+			playsound(get_turf(user), pick(fire_sound), (loudness*barrel.noise_mod)+rand(-10, 10), TRUE, 100)
+		else
+			playsound(get_turf(user), pick(fire_sound), loudness+rand(-10, 10), TRUE, 100)
 
-		if (muzzle_flash)
+	if (muzzle_flash)
+		if (barrel)
+			set_light(muzzle_flash*barrel.flash_mod)
+		else
 			set_light(muzzle_flash)
 
 	var/datum/firemode/F = firemodes[sel_mode]
@@ -352,6 +397,20 @@
 			recoil = i_recoil
 	else
 		recoil = i_recoil
+
+	jam_check += jam_frequency + barrel.temperature/2
+
+	if (prob(jam_check))
+		jam_time = jam_check * jam_severity
+		jam_check = 0
+	to_world("jam_check:[jam_check]")
+
+	//Maybe when the barrel breaks from overheating produce smoke?
+	//Maybe have a chance 50/50 of sending the bullet back towards the shooter or sending it where the shooter wanted it to go
+	/*
+	spawn (1)
+		new/obj/effect/effect/smoke/chem(get_step(src, dir))
+	*/
 
 	update_icon()
 
@@ -376,22 +435,27 @@
 				damage_mult = 3
 	P.damage *= damage_mult
 
-/obj/item/weapon/gun/proc/process_accuracy(obj/projectile, mob/user, atom/target, acc_mod, dispersion)
+/obj/item/weapon/gun/proc/process_accuracy(obj/projectile, mob/user, atom/target, accuracy_mod, dispersion)
 	var/obj/item/projectile/P = projectile
 
 	if (!istype(P))
 		return //default behaviour only applies to true projectiles
 
 	//Accuracy modifiers
-	P.accuracy = accuracy + acc_mod
-	P.dispersion = dispersion
-/*
+	if (!user.has_empty_hand(both = FALSE))
+		P.accuracy = accuracy / akimbo_penalty
+		P.dispersion = dispersion * akimbo_penalty
+	else
+		P.accuracy = accuracy
+		P.dispersion = dispersion
+	/*
 	//accuracy bonus from aiming
 	if (aim_targets && (target in aim_targets))
 		//If you aim at someone beforehead, it'll hit more often.
 		//Kinda balanced by fact you need like 2 seconds to aim
 		//As opposed to no-delay pew pew
-		P.accuracy += 2*/
+		P.accuracy += 2
+	*/
 
 //does the actual launching of the projectile
 /obj/item/weapon/gun/proc/process_projectile(obj/projectile, mob/user, atom/target, var/target_zone, var/params=null)
@@ -435,10 +499,13 @@
 	var/obj/item/projectile/in_chamber = consume_next_projectile()
 	if (in_chamber && istype(in_chamber))
 		user.visible_message("<span class = 'warning'>[user] pulls the trigger.</span>")
-		if (silenced)
-			playsound(user, fire_sound, 10, TRUE)
+		if (suppressed)
+			playsound(get_turf(user), pick(suppressed_fire_sound), (loudness*barrel.noise_mod)+rand(-10, 10), TRUE, 100)
 		else
-			playsound(user, fire_sound, 50, TRUE)
+			if (barrel)
+				playsound(get_turf(user), pick(fire_sound), (loudness*barrel.noise_mod)+rand(-10, 10), TRUE, 100)
+			else
+				playsound(get_turf(user), pick(fire_sound), loudness+rand(-10, 10), TRUE, 100)
 
 		M.attack_log += "\[[time_stamp()]\] [M]/[M.ckey]</b> shot themselves in the mouth (tried to commit suicide)"
 
@@ -503,10 +570,14 @@
 					damage_multiplier = 3.0
 
 			user.visible_message("<span class = 'red'>[user] shoots \himself in \the [organ_name]!</span>")
-			if (silenced)
-				playsound(user, fire_sound, 20, TRUE)
+
+			if (suppressed)
+				playsound(get_turf(user), pick(suppressed_fire_sound), (loudness*barrel.noise_mod)+rand(-10, 10), TRUE, 100)
 			else
-				playsound(user, fire_sound, 100, TRUE)
+				if (barrel)
+					playsound(get_turf(user), pick(fire_sound), (loudness*barrel.noise_mod)+rand(-10, 10), TRUE, 100)
+				else
+					playsound(get_turf(user), pick(fire_sound), loudness+rand(-10, 10), TRUE, 100)
 
 			user.attack_log += "\[[time_stamp()]\] [user]/[user.ckey]</b> shot themselves in the [organ_name]"
 
@@ -537,6 +608,7 @@
 		user.visible_message("The fire selector is set to [current_mode.name].")
 	if (safetyon)
 		user << "<span class='notice'><b>The safety is on.</b></span>"
+
 /obj/item/weapon/gun/proc/switch_firemodes(mob/user=null)
 	sel_mode++
 	if (sel_mode > firemodes.len)
@@ -547,7 +619,14 @@
 		full_auto = TRUE
 	else
 		full_auto = FALSE
+
 /obj/item/weapon/gun/attack_self(mob/user)
+	if (jam_time > 0)
+		if (do_after(user, jam_time, user))
+			jam_time = 0
+			user << "<span class = 'notice'>You clear the jam in the [src]!</span>"
+		else
+			return
 	if (firemodes.len > 1)
 		switch_firemodes(user)
 /*

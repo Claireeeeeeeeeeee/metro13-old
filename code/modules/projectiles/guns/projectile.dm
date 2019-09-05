@@ -17,6 +17,10 @@
 	var/reload_sound 	= 'sound/weapons/guns/interact/pistol_magin.ogg'
 	var/cocked_sound 	= 'sound/weapons/guns/interact/pistol_cock.ogg'
 	var/bulletinsert_sound 	= 'sound/weapons/guns/interact/bullet_insert.ogg'
+	//var/list/temp_firemodes = list()
+	//temp_firemodes.Add(src.firemodes) 
+	if (firemodes)
+		var/list/temp_firemodes += src.firemodes
 
 	//For SINGLE_CASING or SPEEDLOADER guns
 	var/max_shells = FALSE			//the number of casings that will fit inside
@@ -113,6 +117,24 @@
 	if (chambered)
 		chambered.expend()
 		process_chambered()
+
+	var/shoot_move_delay = firemode2.move_delay
+
+	if (ammo_magazine)
+		shoot_move_delay *= ammo_magazine.unwieldiness
+	if (barrel)
+		shoot_move_delay *= barrel.unwieldiness
+	if (stock)
+		shoot_move_delay *= stock.unwieldiness
+	if (bayonet)
+		shoot_move_delay *= bayonet.unwieldiness
+	if (under)
+		shoot_move_delay *= under.unwieldiness
+	if (scope)
+		shoot_move_delay *= scope.unwieldiness
+
+	if (shoot_move_delay)
+		user.setMoveCooldown(shoot_move_delay)
 
 /obj/item/weapon/gun/projectile/handle_click_empty()
 	..()
@@ -341,3 +363,25 @@
 
 	unload_ammo(usr)
 */
+
+/obj/item/weapon/gun/projectile/update_icon()
+	//ammo_magazine.stored_ammo.len
+	//var/list/states = icon_states(ammo_magazine.icon)
+	to_world("YAY, PAINTING")
+	if (magazine_ico != null)
+		overlays -= magazine_ico
+		magazine_ico = null
+
+	if (ammo_magazine)
+		var/list/states = icon_states(ammo_magazine.icon)
+		for (var/i = ammo_magazine.stored_ammo.len, i < ammo_magazine.max_ammo, i++)
+			var/ammo_state = "[ammo_magazine.icon_state]-[i]"
+			if (ammo_state in states)
+				magazine_ico = image("icon" = 'icons/obj/gun_att.dmi', "icon_state" = "[ammo_magazine.icon_state]")
+				overlays += magazine_ico
+
+		//ico logic goes here
+		//icon_state = null
+	update_held_icon()
+
+	return

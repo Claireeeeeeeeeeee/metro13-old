@@ -9,17 +9,24 @@ Add attached bayonet sprite
 
 Current Defines (_defines/attachment.dm)
 
-#define ATTACH_IRONSIGHTS TRUE
+#define ATTACH_IRONSIGHTS 1
 #define ATTACH_SCOPE 2
 #define ATTACH_STOCK 4
 #define ATTACH_BARREL 8
-#define ATTACH_UNDER TRUE6
+#define ATTACH_UNDER 16
+#define ATTACH_ADV_SCOPE 32
 */
 
 /obj/item/weapon/attachment
 	var/attachable = TRUE
 	var/attachment_type //Use the 'ATTACH_' defines above (should only use one for this)
 	var/A_attached = FALSE //Is attached
+	var/overheating_sprite = null
+	var/specific_sprite = list() //If you want an attachment to use a specific ongun sprite for a specific gun, put the gun's name into here
+	var/unwieldiness = 0.95
+	var/accuracy_mod = 1
+	var/dispersion_mod = 1
+	//When the attachment looks for a layer to add to the guns sprite it will look for "[attachment]_[gun]_ongun"
 	w_class = 2
 
 /obj/item/weapon/attachment/proc/attached(mob/user, obj/item/weapon/gun/G)
@@ -53,6 +60,8 @@ Current Defines (_defines/attachment.dm)
 /obj/item/weapon/gun
 	var/list/attachments = list()
 	var/attachment_slots = null //Use the 'ATTACH_' defines above; can ise in combination Ex. ATTACH_SCOPE|ATTACH_BARREL
+	var/attachment_inclusions = list()
+	var/attachment_exclusions = list()
 
 /obj/item/weapon/gun/examine(mob/user)
 	..()
@@ -101,6 +110,9 @@ Current Defines (_defines/attachment.dm)
 
 //Do not use this; use try_attach instead
 /obj/item/weapon/gun/proc/attach_A(obj/item/weapon/attachment/A, mob/user)
+	if (A in attachment_exclusions) //Creator of weapon has specified that a specific attachment should NOT go on their weapon
+		user << "[A] cannot be attached to the [src]."
+		return
 	switch(A.attachment_type)
 		if (ATTACH_IRONSIGHTS)
 			if (attachment_slots & ATTACH_IRONSIGHTS)
@@ -125,13 +137,18 @@ Current Defines (_defines/attachment.dm)
 		if (ATTACH_UNDER)
 			if (attachment_slots & ATTACH_UNDER)
 				A.attached(user, src, FALSE)
+			else
+				user << "You fumble around with the attachment."
 		if (ATTACH_ADV_SCOPE)
 			if (attachment_slots & ATTACH_ADV_SCOPE)
 				A.attached(user, src, FALSE)
 			else
 				user << "You fumble around with the attachment."
 		else
-			user << "[A] cannot be attached to the [src]."
+			if (A in attachment_inclusions) //Creator of weapon has specified that a specific attachment SHOULD go on their weapon
+				A.attached(user, src, FALSE)
+			else
+				user << "[A] cannot be attached to the [src]."
 
 //ATTACHMENTS
 
@@ -261,6 +278,7 @@ Current Defines (_defines/attachment.dm)
 		G.actions += actions
 		G.verbs += verbs
 		G.attachments += src
+		G.scope = src
 		if (istype(G, /obj/item/weapon/gun/projectile))
 			var/obj/item/weapon/gun/projectile/W = G
 			W.sniper_scope = TRUE
@@ -273,6 +291,7 @@ Current Defines (_defines/attachment.dm)
 			loc = G
 			G.actions += actions
 			G.verbs += verbs
+			G.scope = src
 			G.attachments += src
 			G.update_attachment_actions(user)
 			user << "<span class = 'notice'>You attach [src] to the [G].</span>"
@@ -288,6 +307,7 @@ Current Defines (_defines/attachment.dm)
 		G.attachments -= src
 		G.actions -= actions
 		G.verbs -= verbs
+		G.scope = null
 		G.attachment_slots += attachment_type
 		dropped(user)
 		A_attached = FALSE
@@ -301,15 +321,12 @@ Current Defines (_defines/attachment.dm)
 /obj/item/weapon/attachment/scope/iron_sights/removed(mob/user, obj/item/weapon/gun/G)
 	return
 
-
 /////////////////ADVANCED OPTICS//////////////////////////////
-
 
 /obj/item/weapon/attachment/scope/adjustable/advanced
 	icon = 'icons/obj/gun_att.dmi'
 	icon_state = "acog"
-	var/acc_modifier = 1
-	var/scopeonly = TRUE //if the gun must be on scope mode to give the bonuses
+	var/scopeonly = TRUE //if the gun must be on scope mode to give the bonuses, should replace this with a -1,0,1 var which dictates whether it only works when unscoped, both, scopes accordingly
 	attachment_type = ATTACH_ADV_SCOPE
 	var/image/ongun
 	New()
@@ -325,6 +342,7 @@ Current Defines (_defines/attachment.dm)
 		G.verbs += verbs
 		G.attachments += src
 		G.specialoptics = src
+		G.scope = src
 		G.optics_ico = ongun
 		G.overlays += G.optics_ico
 	else
@@ -352,6 +370,7 @@ Current Defines (_defines/attachment.dm)
 		dropped(user)
 		A_attached = FALSE
 		loc = get_turf(src)
+		G.scope = null
 		user << "You remove [src] from the [G]."
 		G.specialoptics = null
 		G.overlays -= G.optics_ico
@@ -368,27 +387,28 @@ Current Defines (_defines/attachment.dm)
 	icon_state = "reddot"
 	desc = "A red dot laser sight. Increases accuracy and gives a slight magnification."
 	max_zoom = ZOOM_CONSTANT+2
-	acc_modifier = 1.4
+	accuracy_mod = 1.4
 
 /obj/item/weapon/attachment/scope/adjustable/advanced/holographic
 	name = "holographic sight"
 	desc = "A reflector holographic sight. Does not give magnification but greatly reduces parallax error."
 	icon_state = "holographic"
 	max_zoom = ZOOM_CONSTANT
-	acc_modifier = 1.5
+	accuracy_mod = 1.5
 
 /obj/item/weapon/attachment/scope/adjustable/advanced/nvs
 	name = "night vision scope"
 	desc = "A bulky scope that allows images be produced in levels of light approaching total darkness."
 	icon_state = "nvs"
 	max_zoom = ZOOM_CONSTANT
-	acc_modifier = 0.8
+	accuracy_mod = 0.8
+
+/////////////////UNDERBARREL//////////////////////////////
 
 /obj/item/weapon/attachment/under
 	icon = 'icons/obj/gun_att.dmi'
 	icon_state = "foregrip"
-	var/acc_modifier = 1
-	var/scopeonly = TRUE //if the gun must be on scope mode to give the bonuses
+	var/noscopeonly = FALSE //if the gun must be OFF scope mode to give the bonuses, should replace this with a -1,0,1 var which dictates whether it only works when unscoped, both, scopes accordingly
 	attachment_type = ATTACH_UNDER
 	var/image/ongun
 	New()
@@ -437,17 +457,215 @@ Current Defines (_defines/attachment.dm)
 		G.overlays -= G.under_ico
 	else
 		return
+
 /obj/item/weapon/attachment/under/laser
 	name = "laser pointer"
 	icon_state = "laser"
 	desc = "a basic laser pointer, increases accuracy by a bit."
-	acc_modifier = 1.2
-	scopeonly = FALSE
+	accuracy_mod = 1.2
+	noscopeonly = TRUE
 
 /obj/item/weapon/attachment/under/foregrip
 	name = "foregrip"
 	icon_state = "foregrip"
 	desc = "a foregrip, to increase stability when firing."
-	acc_modifier = 1.4
-	scopeonly = FALSE
+	accuracy_mod = 1.4
+	noscopeonly = FALSE
 
+/////////////////BARREL ATTACHMENTS//////////////////////////////
+
+/obj/item/weapon/attachment/barrel
+	icon = 'icons/obj/gun_att.dmi'
+	icon_state = "lightbarrel"
+
+	accuracy_mod = 3
+	dispersion_mod = 0.5
+	unwieldiness = 1.1
+
+	attachment_type = ATTACH_BARREL
+	var/image/ongun
+
+	var/temperature = 0
+	var/max_temperature = 50
+	var/cool_rate = 0.01
+	
+	var/suppressing = FALSE //Whether or not the barrel causes the gun to use a suppressed gunshot sound
+	var/noise_mod = 1 //Multiplier for the noise of a shot
+	var/flash_mod = 1 //Multiplier for muzzle flash
+	New()
+		..()
+		//ongun = image("icon" = 'icons/obj/gun_att.dmi', "icon_state" = "[icon_state]_ongun")
+
+/obj/item/weapon/attachment/barrel/attached(mob/user, obj/item/weapon/gun/G, var/quick = FALSE)
+	if (quick)
+		if ("[G]" in specific_sprite)
+			ongun = image("icon" = 'icons/obj/gun_att.dmi', "icon_state" = "[icon_state]_[G]")
+		else
+			ongun = image("icon" = 'icons/obj/gun_att.dmi', "icon_state" = "[icon_state]_ongun")
+		A_attached = TRUE
+		G.attachment_slots -= attachment_type
+		loc = G
+		G.actions += actions
+		G.verbs += verbs
+		G.attachments += src
+		G.barrel = src
+		G.barrel_ico = ongun
+		G.overlays += G.barrel_ico
+		process()
+	else
+		if (do_after(user, 15, user))
+			user.unEquip(src)
+			A_attached = TRUE
+			G.attachment_slots -= attachment_type
+			loc = G
+			G.actions += actions
+			G.verbs += verbs
+			G.attachments += src
+			G.update_attachment_actions(user)
+			user << "<span class = 'notice'>You attach [src] to the [G].</span>"
+			G.barrel = src
+			G.barrel_ico = ongun
+			G.overlays += G.barrel_ico
+			process()
+		else
+			return
+
+/obj/item/weapon/attachment/barrel/removed(mob/user, obj/item/weapon/gun/G)
+	if (temperature >= 12)
+		user << "<span class = 'warning'>You burn your hand on the [src]!</span>"
+		if (istype(usr,/mob/living/carbon/human))
+			var/mob/living/carbon/human/H = usr
+			H.apply_damage(rand(2,4), BURN, pick("l_hand","r_hand"))
+		return
+	if (do_after(user, 15, user))
+		G.attachments -= src
+		G.actions -= actions
+		G.verbs -= verbs
+		G.attachment_slots += attachment_type
+		dropped(user)
+		A_attached = FALSE
+		loc = get_turf(src)
+		user << "You remove [src] from the [G]."
+		G.barrel = null
+		G.overlays -= G.barrel_ico
+	else
+		return
+
+/obj/item/weapon/attachment/barrel/process(G)
+	while(A_attached)
+		if (temperature > 0)
+			if ((temperature - cool_rate) < 0)
+				temperature = 0
+			temperature -= cool_rate
+		to_world("[temperature]")
+		if (temperature > max_temperature)// and prob(10) //Add this in after we get the visual indication going
+			melt(src, G)
+			spawn (1)
+				new/obj/effect/effect/smoke/chem(get_step(src, dir))
+
+/obj/item/weapon/attachment/barrel/melt(mob/user, obj/item/weapon/gun/G)
+	G.attachments -= src
+	G.actions -= actions
+	G.verbs -= verbs
+	G.attachment_slots += attachment_type
+	A_attached = FALSE
+	loc = get_turf(src)
+	user << "Your [src] melts off of the [G]!"
+	G.stock = null
+	G.overlays -= G.stock_ico
+
+/obj/item/weapon/attachment/barrel/lightbarrel
+	icon = 'icons/obj/gun_att.dmi'
+	icon_state = "lightbarrel"
+	
+	accuracy_mod = 3
+	dispersion_mod = 2
+	
+	attachment_type = ATTACH_BARREL
+
+	temperature = 0
+	max_temperature = 50
+	cool_rate = 0.01
+	
+	suppressing = FALSE //Whether or not the barrel causes the gun to use a suppressed gunshot sound
+	noise_mod = 1 //Multiplier for the noise of a shot
+	flash_mod = 1 //Multiplier for muzzle flash
+
+/obj/item/weapon/attachment/barrel/lightbarrel
+	icon = 'icons/obj/gun_att.dmi'
+	icon_state = "suppressor"
+	
+	accuracy_mod = 3
+	dispersion_mod = 2
+	
+	attachment_type = ATTACH_BARREL
+
+	temperature = 0
+	max_temperature = 50
+	cool_rate = 0.01
+	
+	suppressing = FALSE //Whether or not the barrel causes the gun to use a suppressed gunshot sound
+	noise_mod = 1 //Multiplier for the noise of a shot
+	flash_mod = 1 //Multiplier for muzzle flash
+
+/////////////////STOCK ATTACHMENTS//////////////////////////////
+
+/obj/item/weapon/attachment/stock
+	icon = 'icons/obj/gun_att.dmi'
+	icon_state = "woodstock"
+	accuracy_mod = 3
+	
+	attachment_type = ATTACH_STOCK
+	var/image/ongun
+
+	New()
+		..()
+		//ongun = image("icon" = 'icons/obj/gun_att.dmi', "icon_state" = "[icon_state]_ongun")
+
+/obj/item/weapon/attachment/stock/attached(mob/user, obj/item/weapon/gun/G, var/quick = FALSE)
+	if (quick)
+		if ("[G]" in specific_sprite)
+			ongun = image("icon" = 'icons/obj/gun_att.dmi', "icon_state" = "[icon_state]_[G]")
+		else
+			ongun = image("icon" = 'icons/obj/gun_att.dmi', "icon_state" = "[icon_state]_ongun")
+		A_attached = TRUE
+		G.attachment_slots -= attachment_type
+		loc = G
+		G.actions += actions
+		G.verbs += verbs
+		G.attachments += src
+		G.stock = src
+		G.stock_ico = ongun
+		G.overlays += G.stock_ico
+		process(G)
+	else
+		if (do_after(user, 15, user))
+			user.unEquip(src)
+			A_attached = TRUE
+			G.attachment_slots -= attachment_type
+			loc = G
+			G.actions += actions
+			G.verbs += verbs
+			G.attachments += src
+			G.update_attachment_actions(user)
+			user << "<span class = 'notice'>You attach [src] to the [G].</span>"
+			G.stock = src
+			G.stock_ico = ongun
+			G.overlays += G.stock_ico
+		else
+			return
+
+/obj/item/weapon/attachment/stock/removed(mob/user, obj/item/weapon/gun/G)
+	if (do_after(user, 15, user))
+		G.attachments -= src
+		G.actions -= actions
+		G.verbs -= verbs
+		G.attachment_slots += attachment_type
+		dropped(user)
+		A_attached = FALSE
+		loc = get_turf(src)
+		user << "You remove [src] from the [G]."
+		G.stock = null
+		G.overlays -= G.stock_ico
+	else
+		return

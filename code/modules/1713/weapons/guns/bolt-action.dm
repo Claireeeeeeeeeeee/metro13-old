@@ -86,9 +86,6 @@
 	var/check_bolt_lock = FALSE //For locking the bolt. Didn't put this in with check_bolt to avoid issues
 	var/bolt_safety = FALSE //If true, locks the bolt when gun is empty
 	var/next_reload = -1
-	var/jammed_until = -1
-	var/jamcheck = 0
-	var/last_fire = -1
 
 /obj/item/weapon/gun/projectile/boltaction/attack_self(mob/user)
 	if (!check_bolt)//Keeps people from spamming the bolt
@@ -125,18 +122,6 @@
 	update_icon()
 	check_bolt--
 
-/obj/item/weapon/gun/projectile/boltaction/special_check(mob/user)
-	if (gun_safety && safetyon)
-		user << "<span class='warning'>You can't fire \the [src] while the safety is on!</span>"
-		return FALSE
-	if (bolt_open)
-		user << "<span class='warning'>You can't fire [src] while the bolt is open!</span>"
-		return FALSE
-	if (!user.has_empty_hand(both = FALSE) && !istype(src,/obj/item/weapon/gun/projectile/boltaction/mosin/obrez))
-		user << "<span class='warning'>You need both hands to fire \the [src]!</span>"
-		return FALSE
-	return TRUE
-
 /obj/item/weapon/gun/projectile/boltaction/load_ammo(var/obj/item/A, mob/user)
 	if (!bolt_open)
 		return
@@ -151,33 +136,10 @@
 
 /obj/item/weapon/gun/projectile/boltaction/handle_post_fire()
 	..()
-
-	if (last_fire != -1)
-		if (world.time - last_fire <= 7)
-			jamcheck += 4
-		else if (world.time - last_fire <= 10)
-			jamcheck += 3
-		else if (world.time - last_fire <= 20)
-			jamcheck += 2
-		else if (world.time - last_fire <= 30)
-			++jamcheck
-		else if (world.time - last_fire <= 40)
-			++jamcheck
-		else if (world.time - last_fire <= 50)
-			++jamcheck
-		else
-			jamcheck = 0
-	else
-		++jamcheck
-
-	if (prob(jamcheck))
-		jammed_until = max(world.time + (jamcheck * 5), 50)
-		jamcheck = 0
 	if (blackpowder)
 		spawn (1)
 			new/obj/effect/effect/smoke/chem(get_step(src, dir))
-	last_fire = world.time
-
+/*
 /obj/item/weapon/gun/projectile/boltaction/update_icon()
 	if (sniper_scope)
 		if (bolt_open)
@@ -193,6 +155,7 @@
 			icon_state = "[base_icon]_open"
 	update_held_icon()
 	return
+*/
 /obj/item/weapon/gun/projectile/boltaction/singleshot
 	name = "Sharps Rifle"
 	desc = "A single-shot, falling block rifle, with a long range. Uses .45-70 cartridges."

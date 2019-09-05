@@ -19,6 +19,10 @@
 	var/safetyon = FALSE
 	var/obj/item/weapon/attachment/scope/adjustable/advanced/specialoptics = null
 	var/obj/item/weapon/attachment/under/under = null
+	var/obj/item/weapon/attachment/barrel/barrel = null
+	var/obj/item/weapon/attachment/stock/stock = null
+	var/obj/item/weapon/attachment/scope/scope = null
+
 /obj/item/weapon/gun/attackby(obj/item/I, mob/user)
 	if (istype(I, /obj/item/weapon/attachment))
 		var/obj/item/weapon/attachment/A = I
@@ -177,20 +181,15 @@
 		miss_chance_modifier += ((1.00 - firer_stat) * accuracy_decrease_mod)/5
 	if (firer.prone)
 		effectiveness_mod *= 1.2
-	if (specialoptics)
-		if ((specialoptics.scopeonly && specialoptics.zoomed) || !specialoptics.scopeonly)
-			var/effmod2 = effectiveness_mod
-			effmod2 *= specialoptics.acc_modifier
-			if (effmod2 != 0)
-				. /= effmod2
-	else if (under)
-		if ((under.scopeonly && specialoptics.zoomed) || !under.scopeonly)
-			var/effmod3 = effectiveness_mod
-			effmod3 *= under.acc_modifier
-			if (effmod3 != 0)
-				. /= effmod3
-	else
-		. /= effectiveness_mod
+	if ((specialoptics.scopeonly && specialoptics.zoomed) || !specialoptics.scopeonly)
+		effectiveness_mod *= specialoptics.accuracy_mod
+	if ((!under.noscopeonly && !specialoptics.zoomed) || !under.noscopeonly)
+		effectiveness_mod *= under.accuracy_mod
+	if (stock)
+		effectiveness_mod *= stock.accuracy_mod
+	if (barrel)
+		effectiveness_mod *= barrel.accuracy_mod
+	. /= effectiveness_mod
 
 	var/d1 = abs(firer.x - target.x)
 	var/d2 = abs(firer.y - target.y)

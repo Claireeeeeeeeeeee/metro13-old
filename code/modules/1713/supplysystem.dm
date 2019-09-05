@@ -67,10 +67,12 @@
 		"blunderbuss ammo crate (15)" = /obj/structure/closet/crate/blunderbuss_ammo,
 		"grenade crate (10)" = /obj/structure/closet/crate/grenades,
 		"cannonball crate (10)"= /obj/structure/closet/crate/cannonball,
+		/*
 		"pistol crate (5)" = /obj/structure/closet/crate/pistols,
 		"musket crate (5)" = /obj/structure/closet/crate/muskets,
 		"musketoon crate (5)" = /obj/structure/closet/crate/musketoons,
-		"blunderbuss crate (5)"= /obj/structure/closet/crate/blunderbusses,)
+		"blunderbuss crate (5)"= /obj/structure/closet/crate/blunderbusses,
+		*/)
 
 	var/list/itemprices = list(
 		"wood crate" = 120,

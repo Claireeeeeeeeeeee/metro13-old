@@ -140,6 +140,8 @@ obj/item/weapon/gun/projectile/ancient/firelance
 
 	load_delay = 150
 	aim_miss_chance_divider = 1.50
+
+/*
 obj/item/weapon/gun/projectile/ancient/handcannon
 	name = "handcannon"
 	desc = "A crude handcannon, consisting on a iron barrel with a wood stock attached."
@@ -324,6 +326,8 @@ obj/item/weapon/gun/projectile/ancient/matchlock
 						return
 	else
 		..()
+
+*/
 
 /obj/item/weapon/gun/projectile/ancient/special_check(mob/user)
 	if (!gunpowder)

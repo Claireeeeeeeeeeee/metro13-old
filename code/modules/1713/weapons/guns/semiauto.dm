@@ -63,50 +63,7 @@
 	equiptimer = 12
 	gun_safety = TRUE
 
-/obj/item/weapon/gun/projectile/semiautomatic/update_icon()
-	if (sniper_scope)
-		if (!ammo_magazine)
-			icon_state = "[base_icon]_scope_open"
-			return
-		else
-			icon_state = "[base_icon]_scope"
-			return
-	else
-		if (ammo_magazine)
-			icon_state = base_icon
-			item_state = base_icon
-		else
-			icon_state = "[base_icon]_open"
-			item_state = base_icon
-	update_held_icon()
-	return
-
-/obj/item/weapon/gun/projectile/semiautomatic/special_check(mob/user)
-	if (gun_safety && safetyon)
-		user << "<span class='warning'>You can't fire \the [src] while the safety is on!</span>"
-		return FALSE
-	if (!user.has_empty_hand(both = FALSE))
-		user << "<span class='warning'>You need both hands to fire \the [src]!</span>"
-		return FALSE
-	if (jammed_until > world.time)
-		user << "<span class = 'danger'>\The [src] has jammed! You can't fire it until it has unjammed.</span>"
-		return FALSE
-	return TRUE
-
-/obj/item/weapon/gun/projectile/semiautomatic/handle_post_fire()
-	..()
-
-	if (world.time - last_fire > 50)
-		jamcheck = 0
-	else
-		jamcheck += 0.4
-
-	if (prob(jamcheck))
-		jammed_until = max(world.time + (jamcheck * 4), 40)
-		jamcheck = 0
-
-	last_fire = world.time
-
+/*
 /obj/item/weapon/gun/projectile/semiautomatic/svt
 	name = "SVT-40"
 	desc = "Soviet semi-automatic rifle chambered in 7.62x54mmR."
@@ -248,3 +205,4 @@
 	throwforce = 20
 	attachment_slots = ATTACH_IRONSIGHTS|ATTACH_BARREL
 	effectiveness_mod = 1.05
+*/

@@ -211,12 +211,12 @@
 	max_range = 10
 	create_path = /mob/living/simple_animal/monkey
 	timer = 3000
-
+/*
 /obj/effect/spawner/mobspawner/pirates
 	name = "pirate spawner"
 	create_path = /mob/living/simple_animal/hostile/pirate
 	timer = 750
-
+*/
 /obj/effect/spawner/mobspawner/british
 	name = "redcoat spawner"
 	max_number = 5

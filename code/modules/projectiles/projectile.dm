@@ -14,7 +14,7 @@
 	var/mob/firer = null//Who shot it
 	var/firer_original_dir = null
 	var/obj/item/weapon/gun/firedfrom = null // gun which shot it
-	var/silenced = FALSE	//Attack message
+	var/suppressed = FALSE	//Attack message
 	var/yo = null
 	var/xo = null
 	var/current = null
@@ -206,7 +206,7 @@
 	xo = targloc.x - curloc.x + x_offset
 
 	shot_from = launcher
-	silenced = launcher.silenced
+	suppressed = launcher.suppressed
 
 	projectile_list += src
 
@@ -243,7 +243,7 @@
 	xo = targloc.x - curloc.x
 
 	shot_from = null
-	silenced = FALSE
+	suppressed = FALSE
 
 	projectile_list += src
 
@@ -262,7 +262,7 @@
 	firer_original_dir = firer.dir
 	firedfrom = launcher
 	shot_from = launcher.name
-	silenced = launcher.silenced
+	suppressed = launcher.suppressed
 
 	projectile_list += src
 
@@ -308,7 +308,7 @@
 
 		do_bullet_act(target_mob, hit_zone)
 		if (blockedhit == FALSE)
-			if (silenced)
+			if (suppressed)
 				target_mob << "<span class='danger'>You've been hit in the [parse_zone(hit_zone)] by the shrapnel!</span>"
 			else
 				visible_message("<span class='danger'>\The [target_mob] is hit by the shrapnel in the [parse_zone(hit_zone)]!</span>")
@@ -413,7 +413,7 @@
 		result = do_bullet_act(target_mob, hit_zone)
 
 	if (result == PROJECTILE_FORCE_MISS)
-		if (!silenced)
+		if (!suppressed)
 			playsound(get_turf(target_mob), "miss_sound", 100, TRUE)
 		return FALSE
 	else if (target_mob && !useless && !target_mob.takes_less_damage) // if we just grazed, useless is set to TRUE
@@ -423,7 +423,7 @@
 
 	//hit messages
 	if (blockedhit == FALSE)
-		if (silenced)
+		if (suppressed)
 			target_mob << "<span class='danger'>You've been hit in the [parse_zone(hit_zone)] by \the [src]!</span>"
 		else
 			visible_message("<span class='danger'>\The [target_mob] is hit in the [parse_zone(hit_zone)]!</span>")//X has fired Y is now given by the guns so you cant tell who shot you if you could not see the shooter
@@ -662,7 +662,7 @@
 
 /obj/item/projectile/proc/muzzle_effect(var/matrix/T)
 
-	if (silenced)
+	if (suppressed)
 		did_muzzle_effect = TRUE
 		return
 

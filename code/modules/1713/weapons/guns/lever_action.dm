@@ -91,7 +91,7 @@
 		unload_ammo(user, allow_dump=0)
 	else
 		return ..()
-	/*
+/*
 /obj/item/weapon/gun/projectile/leveraction/attack_self(mob/user)
 	if (empty_casing && !cocked)
 		playsound(loc, cocked_sound, 50, TRUE)
@@ -123,9 +123,6 @@
 		user << "<span class='warning'>You can't fire \the [src] while the chamber is empty!</span>"
 		return FALSE
 */
-	if (!(user.has_empty_hand(both = FALSE)))
-		user << "<span class='warning'>You need both hands to fire \the [src]!</span>"
-		return FALSE
 	return ..()
 
 /obj/item/weapon/gun/projectile/leveraction/consume_next_projectile()

@@ -421,7 +421,7 @@
 	base_spread = FALSE //causes it to be treated as a shrapnel explosion instead of cone
 	spread_step = 12
 
-	silenced = TRUE //embedding messages are still produced so it's kind of weird when enabled.
+	suppressed = TRUE //embedding messages are still produced so it's kind of weird when enabled.
 	no_attack_log = TRUE
 	muzzle_type = null
 

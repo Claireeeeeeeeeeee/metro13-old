@@ -7,6 +7,9 @@
 	var/image/bayonet_ico
 	var/image/optics_ico
 	var/image/under_ico
+	var/image/barrel_ico
+	var/image/stock_ico
+	var/image/magazine_ico
 
 /obj/item/weapon/Bump(mob/M as mob)
 	spawn(0)
@@ -29,3 +32,6 @@
 	bayonet_ico = image("icon" = 'icons/obj/gun.dmi', "icon_state" = "bayonet")
 	optics_ico = image("icon" = 'icons/obj/gun_att.dmi', "icon_state" = "")
 	under_ico = image("icon" = 'icons/obj/gun_att.dmi', "icon_state" = "")
+	barrel_ico = image("icon" = 'icons/obj/gun_att.dmi', "icon_state" = "")
+	stock_ico = image("icon" = 'icons/obj/gun_att.dmi', "icon_state" = "")
+	magazine_ico = image("icon" = 'icons/obj/gun_mag.dmi', "icon_state" = "")

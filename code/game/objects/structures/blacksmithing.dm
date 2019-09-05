@@ -66,7 +66,7 @@ obj/structure/anvil/New()
 	else if (steel_amt > 0)
 		var/list/display = list("Swords", "Cancel")
 		if (map.ordinal_age == 4)
-			display = list("Swords","Guns", "Cancel")
+			display = list("Swords", "Guns", "Cancel")
 		else if (map.ordinal_age >= 5)
 			display = list("Swords", "Armor", "Cancel")
 		var/choice = WWinput(user, "What do you want to make?", "Blacksmith - [steel_amt] steel", "Cancel", display)
@@ -611,6 +611,7 @@ obj/structure/anvil/New()
 				else
 					user << "<span class='notice'>You need more iron to make this!</span>"
 					return
+		/*
 		else if (choice == "Guns")
 			var/list/display3 = list("Crude Musket (15)", "Flintlock Pistol (20)", "Flintlock Musketoon (25)", "Flintlock Musket (30)", "Flintlock Blunderbuss (25)", "Cancel")
 			var/choice3 = WWinput(user, "What do you want to make?", "Blacksmith - [iron_amt] iron", "Cancel", display3)
@@ -686,6 +687,7 @@ obj/structure/anvil/New()
 					return
 			if (choice3 == "Cancel")
 				return
+		*/
 		else if (choice == "Armor")
 			var/list/display4 = list("Cancel")
 			if (map.ordinal_age == 4)
