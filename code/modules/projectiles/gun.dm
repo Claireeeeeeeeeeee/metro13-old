@@ -1,3 +1,4 @@
+//TODO: Move the code that checks if user is currently recovering from a move delay and if true blocks them from shooting into projectile.dm so that it works with attachments
 /datum/firemode
 	var/name = "default"
 	var/burst = 1
@@ -89,7 +90,8 @@
 //	var/can_scope = FALSE
 
 	var/burst = 1
-	var/move_delay = 0
+	var/_move_delay //Don't set over this, this is a workaround to allows projectile.dm to allow attachments to effect the movement delay
+	var/move_delay = 0 //Set over this in your guns
 	var/list/burst_accuracy = list(0)
 	var/list/dispersion = list(0)
 
@@ -275,7 +277,7 @@
 	var/_burst = firemode.burst
 	var/_burst_delay = isnull(firemode.burst_delay)? burst_delay : firemode.burst_delay
 	var/_fire_delay = isnull(firemode.fire_delay) ? fire_delay : firemode.fire_delay
-	var/_move_delay = firemode.move_delay
+	_move_delay = firemode.move_delay
 
 	if (forceburst != -1)
 		_burst = forceburst
@@ -333,9 +335,9 @@
 	update_held_icon()
 
 	//update timing
-	
+
 	if (_move_delay)
-		user.setMoveCooldown(_move_delay + 1.5)
+		user.setMoveCooldown(_move_delay)
 
 	next_fire_time = world.time + _fire_delay
 

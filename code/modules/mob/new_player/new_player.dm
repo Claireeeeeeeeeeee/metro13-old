@@ -251,6 +251,7 @@
 		if (map && map.ID == MAP_TRIBES)
 			close_spawn_windows()
 			AttemptLateSpawn(pick(map.availablefactions))
+			to_world("Attempted to spawn into the tribes map [map],[map.ID]")
 		else
 			return
 		LateChoices()
@@ -285,6 +286,7 @@
 		if (map && map.civilizations == TRUE)
 			close_spawn_windows()
 			AttemptLateSpawn(pick(map.availablefactions))
+			to_world("Attempted to spawn into the civilizations map [map],[map.ID]")
 		else
 			return
 		LateChoices()
@@ -620,10 +622,11 @@
 	if (INDIANS in map.faction_organization)
 		dat += "[alive_indians.len] Natives "
 	if (CIVILIAN in map.faction_organization)
+		/*
 		if (map && istype(map, /obj/map_metadata/tsaritsyn))
 			dat += "[alive_civilians.len] Soviets "
-		else
-			dat += "[alive_civilians.len] Civilians "
+		else*/
+		dat += "[alive_civilians.len] Civilians "
 	if (GREEK in map.faction_organization)
 		dat += "[alive_greek.len] Greeks "
 	if (ROMAN in map.faction_organization)
@@ -637,10 +640,11 @@
 	if (GERMAN in map.faction_organization)
 		dat += "[alive_german.len] German "
 	if (AMERICAN in map.faction_organization)
+		/*
 		if (map && istype(map, /obj/map_metadata/arab_town))
 			dat += "[alive_american.len] Israeli "
-		else
-			dat += "[alive_american.len] American "
+		else*/
+		dat += "[alive_american.len] American "
 	if (VIETNAMESE in map.faction_organization)
 		dat += "[alive_vietnamese.len] Vietnamese "
 	dat += "<br>"

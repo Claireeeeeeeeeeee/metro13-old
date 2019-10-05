@@ -18,9 +18,9 @@
 	var/cocked_sound 	= 'sound/weapons/guns/interact/pistol_cock.ogg'
 	var/bulletinsert_sound 	= 'sound/weapons/guns/interact/bullet_insert.ogg'
 	//var/list/temp_firemodes = list()
-	//temp_firemodes.Add(src.firemodes) 
-	if (firemodes)
-		var/list/temp_firemodes += src.firemodes
+	//temp_firemodes.Add(src.firemodes)
+	//if (firemodes)
+	//	var/list/temp_firemodes += src.firemodes
 
 	//For SINGLE_CASING or SPEEDLOADER guns
 	var/max_shells = FALSE			//the number of casings that will fit inside
@@ -118,7 +118,9 @@
 		chambered.expend()
 		process_chambered()
 
-	var/shoot_move_delay = firemode2.move_delay
+	var/shoot_move_delay = 0
+	if (_move_delay)
+		shoot_move_delay = _move_delay
 
 	if (ammo_magazine)
 		shoot_move_delay *= ammo_magazine.unwieldiness
@@ -132,7 +134,6 @@
 		shoot_move_delay *= under.unwieldiness
 	if (scope)
 		shoot_move_delay *= scope.unwieldiness
-
 	if (shoot_move_delay)
 		user.setMoveCooldown(shoot_move_delay)
 
